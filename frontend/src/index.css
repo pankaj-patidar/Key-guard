@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #f7f8ff;
+    color: #1e1b4b;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  input, textarea, select {
+    background-color: #ffffff;
+    color: #1e1b4b;
+    color-scheme: light;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #1e1b4b !important;
+    caret-color: #6366f1;
+    transition: background-color 99999s ease-in-out 0s;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a5b4fc; }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(99,102,241,0.15);
+  }
+  .glass-hover {
+    transition: all 0.2s;
+  }
+  .glass-hover:hover {
+    background: rgba(255,255,255,0.95);
+    border-color: rgba(99,102,241,0.3);
+    box-shadow: 0 4px 12px rgba(99,102,241,0.1);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-indigo {
+    box-shadow: 0 0 20px rgba(99,102,241,0.25);
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e0f9;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(99,102,241,0.08);
+  }
+  .card-hover {
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .card-hover:hover {
+    box-shadow: 0 4px 16px rgba(99,102,241,0.15);
+    border-color: #c7d2fe;
+    transform: translateY(-1px);
+  }
+}
+
+.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #94a3b8;
+  pointer-events: none;
+  height: 0;
+}
